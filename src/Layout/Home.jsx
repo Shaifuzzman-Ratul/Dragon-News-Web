@@ -18,12 +18,12 @@ const Home = () => {
                     <Navbar></Navbar>
                 </nav>
             </header>
-            <main className='grid grid-cols-12 w-11/12 mx-auto my-3'>
-                <section className="left_nav col-span-2"><LeftSide></LeftSide></section>
+            <main className='grid grid-cols-2 lg:grid-cols-12  lg:w-11/12 mx-auto my-3 '>
+                <section className="left_nav col-span-2 sticky lg:top-0 h-fit"><LeftSide></LeftSide></section>
                 <section className="main col-span-7">
                     <Outlet></Outlet>
                 </section>
-                <section className="right_nav col-span-3"><RightSide></RightSide></section>
+                <section className="right_nav col-span-3 sticky lg:top-0 h-fit"><RightSide></RightSide></section>
             </main>
         </div>
     );

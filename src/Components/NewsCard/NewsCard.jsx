@@ -3,9 +3,10 @@ import { CiBookmark, CiShare2 } from 'react-icons/ci';
 import { FaEye } from 'react-icons/fa';
 import { MdOutlineStarPurple500 } from 'react-icons/md';
 import { IoEye } from "react-icons/io5";
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
-    const { author, title, details, rating, total_view, image_url } = news;
+    const { id, author, title, details, rating, total_view, image_url } = news;
     const formatedDate = new Date(news.author.published_date).toLocaleDateString();
     return (
         <div className='rounded-xl border-1 border-gray-200 m-4 '>
@@ -31,18 +32,16 @@ const NewsCard = ({ news }) => {
                 <p className='text-gray-500 p-1'>{details.length > 300 ? (
                     <>
                         {details.slice(0, 300)}...
-                        <span className='font-semibold  text-sm text-primary hover:underline' >Read More</span>
+                        <Link to={`/newsDetails/${id}`}> <span className='font-semibold  text-sm text-primary hover:underline' >Read More</span></Link>
                     </>) : (details)}</p>
             </div>
             <div className="divider"></div>
             <div className='flex justify-between p-2'>
                 <div className='flex text-[#ff8c47] items-center pb-3'>
-                    <MdOutlineStarPurple500 />
-                    <MdOutlineStarPurple500 />
-                    <MdOutlineStarPurple500 />
-                    <MdOutlineStarPurple500 />
-                    <MdOutlineStarPurple500 />
-                    <p className='pl-2 text-sm text-black font-bold'>{rating.number}</p>
+
+                    <p className='pl-2 text-md text-black font-bold flex justify-center items-center gap-1  '>Ratig : <span className='text-[#ff8811] text-md'>                    <MdOutlineStarPurple500 />
+                    </span><span className='text-[#ff8811] text-md'>{rating.number}</span></p>
+
                 </div>
                 <div className='flex items-center gap-1'>
                     <IoEye />
